@@ -1,0 +1,115 @@
+
+-----------------------------------------------------------------------------with flags uses --------------------------------------------------------------------------------------------------------
+-i <inputfile>         inupt file for program
+-o <outputfile>        output file for program
+
+$./translit --r2d -i <inputfile> -o <outputfile> 
+	description- converts roman/ascii string to Devnagari text
+        ex   ./translit --r2d -i mix_input -o output
+
+
+
+
+$./translit --d2r -i <inputfile> -o <outputfile>
+	description- Devnagari text to roman/ascii string
+        ex   ./translit --d2r -i pune.txt -o output
+
+
+-----------------------------------------------------------------------------without flags uses-------------------------------------------------------------------------------------------------------
+
+./mar_to_eng.sh <input_file>        
+	description- input_file -must be in marathi text      
+        ex   ./mar_to_eng.sh all_marathi_words.txt
+        
+        
+        
+        
+./eng_to_mar.sh <input_file>         
+	description- nput_file -should be in english text                   
+    ex.  ./eng_to_mar.sh  new > new2
+
+
+
+
+./unicode.sh <input_file>           
+	description- input_file -should be in english text           
+             ex.  ./unicode.sh new
+
+
+ 
+awk -f unicode2.awk <input_file>    
+	description- input_file - should be in english text            
+           ex.   awk -f unicode2.awk new
+
+
+
+./uni_to_eng.sh <input_file>      
+	description- input_file- should contains english codes            
+          ex.   ./uni_to_eng.sh new
+
+
+
+
+
+
+---------------------------------------------------------------------------Input files to use-------------------------------------------------------------------------------------------------------
+input - contains normal words as input
+
+mix_input    - contains all the input text with normal words and jodakshars
+
+sentence_input - contains input in sentence 
+
+marathi.txt - contains input in marathi language
+
+pune.txt - contains input in marathi language
+
+all_marathi_words.txt - contains all aprox 19000 words in marathi
+
+
+
+
+
+
+-----------------------------------------------------------------------Files used for logic---------------------------------------------------------------------------------------------------------
+
+trns_p  - converts given strings' characters into decimal equivalent Unicode 
+
+d_hex - converts given decimal Unicode values to hexadecimal Unicode values
+
+test_script - Resolves the conflicts of vowels and consonants (e.g., for "kaa" there should be Unicode of "k" followed by dependent vowel signs instead of independent)
+
+0905 - Removes trailing vowels which are extra and were added for moving to the next line; their purpose ends, so we remove them.
+
+joda - This script handles jodakshar patterns and adds 094D after finding which letter needs to be halant.
+
+reverse - Just converts all generated Unicode values to their respective Marathi characters for verification purposes.
+
+anti_0905 - reverse logic for 0905
+
+anti_test_script - reverse logic for test script
+
+anti_joda - reverse logic for joda
+
+anti_trns_p - reverse logic for trns_p
+
+anti_d_hex - converts hex to decimal
+
+make_column - converts give line to columns
+
+make_in_line.awk - rearranged input in line
+
+unicode.sh - returns the unicodes of given english text file
+
+unicode2.awk - return the unicodes of given english text file
+
+eng_to_mar.sh- converts given input file in engilsh to marathi 
+
+mar_to_eng.sh - converts given marathi text file to english
+
+uni_to_eng.sh - converts given english text file to unicodes and prints it
+                and also print english text generated from its unicodes
+
+
+
+
+
