@@ -1,0 +1,21 @@
+s/sbr/auto/g
+s/rbs/return output\; \}/g
+s/\-> u32/\-\> uint32_t \{ uint32_t output=0\; /g
+s/decl var \([a-zA-Z]\)* : u32 \= \(.*\)/uint32_t \1 \= \2 /g
+
+s/decl var \([a-zA-Z]\)* : u64 \= \(.*\)/uint64_t \1 \= \2 /g
+
+s/decl \([a-zA-Z]\)* : u32 \= \(.*\)/const uint32_t \1 \= \2  /g
+
+s/decl \(.*\) : u64 \= \(.*\)/const uint64_t \1 \= \2  /g
+
+
+
+s/\([a-zA-Z]\)* : u32/uint32_t \1 /g
+
+
+
+s/while \(.*\) do/while \(\1\) \{/g
+s/od/\}/g
+
+

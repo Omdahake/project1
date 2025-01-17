@@ -1,0 +1,11 @@
+sbr fact (k : u32) -> u32
+	decl var m : u32 = 1;
+	output = 1;
+	
+	while m<k do 
+ 		m = m + 1;
+		output=output * m;
+
+	od
+
+rbs
